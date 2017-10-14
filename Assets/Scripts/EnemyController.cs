@@ -22,16 +22,18 @@ public class EnemyController : MonoBehaviour {
 		transform.position += Vector3.forward * -forwardSpeed;
 
 		if(randomNumber == 1){
-			StopCoroutine("SwitchLane");			
+			randomNumber = 0;
+			StopCoroutine("SwitchLane");				
 			StartCoroutine("SwitchLane", sideTime);
 		}
 		else if(randomNumber == 2){
+			randomNumber = 0;
 			sideSpeed = sideSpeed * -1;
-			StopCoroutine("SwitchLane");
+			StopCoroutine("SwitchLane");	
 			StartCoroutine("SwitchLane", sideTime);	
 		}
 
-        transform.position = new Vector3(Mathf.Clamp(Time.time, leftClamp, rightClamp), transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftClamp, rightClamp), transform.position.y, transform.position.z);
 	}
 
 	IEnumerator SwitchLane(float time){

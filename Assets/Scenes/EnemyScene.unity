@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardSpeed: 0.05
-  sideSpeed: 0.05
+  sideSpeed: 0.1
   sideTime: 0.5
   randomNumberRollSeconds: 4
   leftClamp: -10
