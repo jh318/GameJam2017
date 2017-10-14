@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1508350901052490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -97.56063, y: 0.00000011920929, z: 218.86934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4795316798398642}
@@ -151,8 +151,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 30, y: 30, z: 1}
+  m_Center: {x: 0, y: 15.32, z: 0}
 --- !u!114 &114372664998175760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,8 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c252b9aecee7a56429693ceef3a5bf68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 30
+  rightAngle: 0
+  leftAngle: 180
   zigZagSpeed: 1
+  zigZagRightMax: 60
+  zigZagLeftMax: -60
 --- !u!114 &114490644176352312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,9 +184,9 @@ MonoBehaviour:
   sideSpeed: 0
   sideTime: 1
   randomNumberRollSeconds: 3
-  leftClamp: -10
-  rightClamp: 10
-  health: 50
+  leftClamp: -60
+  rightClamp: 60
+  health: 1
   score: {fileID: 0}
 --- !u!114 &114757326901320712
 MonoBehaviour:
@@ -196,5 +199,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5730a3ace63f6a741974ae438b60b382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1000
+  jumpForce: 2000
   jumpInterval: 2

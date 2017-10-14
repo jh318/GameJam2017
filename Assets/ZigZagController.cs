@@ -7,11 +7,13 @@ public class ZigZagController : MonoBehaviour {
 	public float rightAngle = 0.0f;
 	public float leftAngle = 180.0f;
 	public float zigZagSpeed = 1.0f;
+	public float zigZagRightMax = 20.0f;
+	public float zigZagLeftMax = -20.0f;
 	bool leftRight = true;
 
 	void Update(){
-		if(transform.position.x >= 10) leftRight = false;
-		if(transform.position.x <= -10) leftRight = true;
+		if(transform.position.x >= zigZagRightMax) leftRight = false;
+		if(transform.position.x <= zigZagLeftMax) leftRight = true;
 
 		if(leftRight){
 			transform.position += Vector3.right * zigZagSpeed;

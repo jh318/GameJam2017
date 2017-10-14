@@ -57,11 +57,13 @@ public class EnemyController : MonoBehaviour {
     {
         if (collider.gameObject.tag == "Bullet")
         {
+			Debug.Log("bullet hit enemy");
             health--;
-            score.AddScore(1);
+            GameManager.instance.AddScore(1);
             collider.gameObject.SetActive(false);
-            if (health == 0)
+            if (health <= 0)
             {
+				Debug.Log("Enemy Destroyed");
                 gameObject.SetActive(false);
             }
         }
