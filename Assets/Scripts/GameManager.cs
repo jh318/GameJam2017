@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public int lives = 3;
 	public string restoreLifeScene = "";
+
+    public Text scoreText;
+    public int score;
 
 	void Awake(){
 		if(instance == null){
@@ -35,7 +39,11 @@ public class GameManager : MonoBehaviour {
 
 	void Start(){
 		lives = startLives;
-	}
+  
+        score = 0;
+        UpdateScore();
+
+    }
 
 	void OnEnemyPassedLine(int lifeDamage){
 		Debug.Log("OnEnemyPassedLine");
@@ -63,4 +71,15 @@ public class GameManager : MonoBehaviour {
 	void RestoreLivesToMax(){
 		lives = startLives;
 	}
+
+    public void AddScore(int newScoreValue)
+    {
+        score += newScoreValue;
+        UpdateScore();
+    }
+
+    public void UpdateScore()
+    {
+        scoreText.text = "Score: " + score;
+    }
 }

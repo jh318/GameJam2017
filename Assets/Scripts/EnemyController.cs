@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour {
     public int health = 3;
 	int randomNumber = 0;
 
+    public GameManager score;
+
 	void Start(){
 		Transform transform = GetComponent<Transform>();
 		StartCoroutine("RandomNumberGenerator", randomNumberRollSeconds);
@@ -55,6 +57,7 @@ public class EnemyController : MonoBehaviour {
         if (collider.gameObject.tag == "Bullet")
         {
             health--;
+            score.AddScore(1);
             collider.gameObject.SetActive(false);
             if (health == 0)
             {
