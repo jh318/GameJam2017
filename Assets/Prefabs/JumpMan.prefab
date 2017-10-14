@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 65062789472561678}
   - component: {fileID: 114757326901320712}
   - component: {fileID: 54112184784021004}
+  - component: {fileID: 114372664998175760}
   m_Layer: 8
   m_Name: JumpMan
   m_TagString: Enemies
@@ -55,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1508350901052490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 4.17}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4795316798398642}
   m_Father: {fileID: 0}
@@ -68,13 +69,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188160698945080}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 30.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4032863981764478}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -270, y: 0, z: 0}
 --- !u!23 &23768822347522644
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -88,7 +89,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: bb35e4e55ae13544fa2f7229cd05cc72, type: 2}
+  - {fileID: 2100000, guid: 114dc34b7d92681408a4416521239560, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +113,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188160698945080}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: abdacdb689f3cfa45b06ab817ba47fcd, type: 3}
 --- !u!54 &54112184784021004
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -126,7 +127,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &65062789472561678
 BoxCollider:
@@ -152,6 +153,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114372664998175760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508350901052490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c252b9aecee7a56429693ceef3a5bf68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 30
+  zigZagSpeed: 1
 --- !u!114 &114490644176352312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,6 +184,7 @@ MonoBehaviour:
   leftClamp: -10
   rightClamp: 10
   health: 50
+  score: {fileID: 0}
 --- !u!114 &114757326901320712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,7 +197,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 1000
-  jumpSpeed: 1
-  jumpTime: 2
   jumpInterval: 2
-  jumpIntervalChangeTime: 5
