@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour {
     public Text scoreText;
     public int score;
 
+    public Text livesText;
+
+
 	void Awake(){
 		if(instance == null){
 			instance = this;
@@ -70,7 +73,9 @@ public class GameManager : MonoBehaviour {
 
 	void RestoreLivesToMax(){
 		lives = startLives;
-	}
+        UpdateLives();
+
+    }
 
     public void AddScore(int newScoreValue)
     {
@@ -81,5 +86,20 @@ public class GameManager : MonoBehaviour {
     public void UpdateScore()
     {
         scoreText.text = "Score: " + score;
+    }
+
+    public void MinusLives(int newLives)
+    {
+        lives -= newLives;
+        UpdateLives();
+    }
+    public void AddLives(int newLives)
+    {
+        lives += newLives;
+        UpdateLives();
+    }
+    void UpdateLives()
+    {
+        livesText.text = "Lives:" + lives;
     }
 }
