@@ -12,15 +12,7 @@ public class Shooting : MonoBehaviour{
 
         if (Input.GetButtonDown("Fire1"))
         {
-
-            Rigidbody instantProjectile = Instantiate(projectile,
-                                                           transform.position,
-                                                           transform.rotation)
-                as Rigidbody;
-
-            instantProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
-
-            Destroy(instantProjectile.gameObject, 2f);
+            AudioManager.PlayVariedEffect("Shoot1");
 
             GameObject bullet = Spawner.Spawn("Bullet");
             Rigidbody instantiatedProjectile = bullet.GetComponent<Rigidbody>();
