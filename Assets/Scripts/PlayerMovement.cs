@@ -6,12 +6,17 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 10.0F;
     public int health = 50;
+    public float clampOffSet = 10.0f;
     void Update()
     {
         float translation = Input.GetAxis("Horizontal") * speed;
         translation *= Time.deltaTime;
         transform.Translate(translation, 0, 0);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
 
+        screenPos.x = Mathf.Clamp(screenPos.x, 0f + clampOffSet, Screen.width - clampOffSet);
+
+        transform.position = Camera.main.ScreenToWorldPoint(screenPos);
     }
     void OnTriggerEnter(Collider collider)
     {
