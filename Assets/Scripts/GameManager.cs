@@ -66,9 +66,23 @@ public class GameManager : MonoBehaviour {
 
 	private void SceneLoaded(Scene scene, LoadSceneMode mode){
 		Debug.Log("MAINSCENELOAD");
-		if(scene.name == restoreLifeScene){
+		if(scene.name == "MainGameScene"){
 			RestoreLivesToMax();
+			GameObject hud = GameObject.Find("HUD");			
+			scoreText = hud.transform.FindChild("Score").GetComponent<Text>();
+			livesText = hud.transform.FindChild("Lives").GetComponent<Text>();
 		}
+
+		
+
+		//GameObject hudScore = GameObject.Find("Score");
+		//scoreText = hudScore.GetComponent<Text>();
+		//UpdateScore();
+
+
+	//	GameObject hudLives = GameObject.Find("Lives");
+		//livesText = hudLives.GetComponent<Text>();
+		//UpdateLives();
 	}
 
 	void RestoreLivesToMax(){

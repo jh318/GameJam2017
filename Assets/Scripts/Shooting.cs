@@ -19,15 +19,8 @@ public class Shooting : MonoBehaviour{
             instantiatedProjectile.transform.position = transform.position;
             instantiatedProjectile.transform.rotation = transform.rotation;
 
-            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
-
-            
-
-            
+            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));   
         }
-
-
-
     }
    
 }
