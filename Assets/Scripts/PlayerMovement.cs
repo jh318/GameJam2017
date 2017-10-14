@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 10.0F;
-    public int health = 50;
+    public int health =3;
     public float clampOffSet = 10.0f;
+
+    public GameManager lives;
+
     void Update()
     {
         float translation = Input.GetAxis("Horizontal") * speed;
@@ -22,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collider.gameObject.tag == "Enemies") {
             health--;
+            lives.MinusLives(1);
         }
     }
 }
