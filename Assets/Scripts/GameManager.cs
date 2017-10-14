@@ -7,11 +7,16 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
 
+	public int startLives = 3;
+	[HideInInspector]
 	public int lives = 3;
 
 	void Awake(){
 		if(instance == null){
 			instance = this;
+		}
+		else{
+			Destroy(gameObject);
 		}
 		
 		DontDestroyOnLoad(gameObject);
@@ -19,6 +24,10 @@ public class GameManager : MonoBehaviour {
 
 	void OnEnable(){
 		killboxcontroller.enemyPassedLine += OnEnemyPassedLine;
+	}
+
+	void Start(){
+		lives = startLives;
 	}
 
 	void OnEnemyPassedLine(int lifeDamage){
