@@ -10,8 +10,10 @@ public class EnemyController : MonoBehaviour {
 	public float randomNumberRollSeconds = 3.0f;
 	public float leftClamp = -10.0f;
 	public float rightClamp = 10.0f;
-    public int health = 50;
+    public int health = 3;
 	int randomNumber = 0;
+
+    public GameManager score;
 
 	void Start(){
 		Transform transform = GetComponent<Transform>();
@@ -55,6 +57,12 @@ public class EnemyController : MonoBehaviour {
         if (collider.gameObject.tag == "Bullet")
         {
             health--;
+            score.AddScore(1);
+            collider.gameObject.SetActive(false);
+            if (health == 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
