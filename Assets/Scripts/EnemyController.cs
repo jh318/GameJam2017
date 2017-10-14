@@ -10,10 +10,16 @@ public class EnemyController : MonoBehaviour {
 	public float randomNumberRollSeconds = 3.0f;
 	public float leftClamp = -10.0f;
 	public float rightClamp = 10.0f;
-    public int health = 3;
+    [HideInInspector]
+	public int health = 3;
+	public int healthMax = 3;
 	int randomNumber = 0;
 
     public GameManager score;
+
+	void OnEnable(){
+		health = healthMax;
+	}
 
 	void Start(){
 		Transform transform = GetComponent<Transform>();
