@@ -10,7 +10,7 @@ public class SpawnPoint : MonoBehaviour {
 	public float offsetY = 0.0f;
 
 	void Start(){
-		StartCoroutine("SpawnCoroutine");
+		//StartCoroutine("SpawnCoroutine");
 	}
 
 	void OnEnable(){
