@@ -134,7 +134,7 @@ Prefab:
     - target: {fileID: 114454403039876524, guid: d7732294b81f9534fa801d4f8eff61ec,
         type: 2}
       propertyPath: offsetY
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114454403039876524, guid: d7732294b81f9534fa801d4f8eff61ec,
         type: 2}
@@ -296,7 +296,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1000, y: 1, z: 100}
+  m_Size: {x: 100, y: 0, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &604750784
 GameObject:
