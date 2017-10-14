@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour{
 
         if (Input.GetButtonDown("Fire1"))
         {
-            AudioManager.PlayVariedEffect("Shoot1");
+            AudioManager.PlayVariedEffect("GalagaShoot");
 
             GameObject bullet = Spawner.Spawn("Bullet");
             Rigidbody instantiatedProjectile = bullet.GetComponent<Rigidbody>();

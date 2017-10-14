@@ -10,8 +10,12 @@ public class killboxcontroller : MonoBehaviour {
 
 	void OnTriggerEnter(Collider c){
 		if(c.gameObject.tag == "Enemies"){
-			Debug.Log("Enemy touched killbox");
 			enemyPassedLine(1);
+			c.gameObject.SetActive(false);
+		}
+		else if(c.gameObject.tag == "Bullet"){
+			Debug.Log("bullet touched killbox");
+			c.gameObject.SetActive(false);
 		}
 	}
 }
