@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 0}
+  - {fileID: 1986829092388248, guid: 937c47765bfb87f47a04fb87bf792018, type: 2}
 --- !u!1 &635010497
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +719,7 @@ MonoBehaviour:
   randomNumberRollSeconds: 4
   leftClamp: -10
   rightClamp: 10
-  health: 50
+  health: 3
 --- !u!4 &984564480
 Transform:
   m_ObjectHideFlags: 0
