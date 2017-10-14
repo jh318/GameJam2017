@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 1115418919529004, guid: ca732299a5bfb634f9661cf3597e3445, type: 2}
+  - {fileID: 0}
 --- !u!1 &984564478
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb760ce55215e54bb52e43350a81758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 54795017675644616, guid: 937c47765bfb87f47a04fb87bf792018,
+    type: 2}
   speed: 20
 --- !u!1 &1618776747
 GameObject:
