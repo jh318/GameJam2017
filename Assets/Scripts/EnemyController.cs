@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public float speed = 1.0f;
+
+	void Start(){
+		Transform transform = GetComponent<Transform>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void Update(){
+		transform.position += Vector3.forward * -speed;
 	}
 }
