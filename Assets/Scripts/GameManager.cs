@@ -65,12 +65,15 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void SceneLoaded(Scene scene, LoadSceneMode mode){
+		GameObject hud = GameObject.Find("HUD");			
+		scoreText = hud.transform.FindChild("Score").GetComponent<UnityEngine.UI.Text>();
+		livesText = hud.transform.FindChild("Lives").GetComponent<UnityEngine.UI.Text>();
+		SceneManager.sceneLoaded += SceneLoaded;
 		Debug.Log("MAINSCENELOAD");
 		if(scene.name == "MainGameScene"){
 			RestoreLivesToMax();
-			GameObject hud = GameObject.Find("HUD");			
-			scoreText = hud.transform.FindChild("Score").GetComponent<Text>();
-			livesText = hud.transform.FindChild("Lives").GetComponent<Text>();
+			StartCoroutine("FindHud");
+			killboxcontroller.enemyPassedLine += OnEnemyPassedLine;
 		}
 
 		
@@ -83,6 +86,13 @@ public class GameManager : MonoBehaviour {
 	//	GameObject hudLives = GameObject.Find("Lives");
 		//livesText = hudLives.GetComponent<Text>();
 		//UpdateLives();
+	}
+
+	IEnumerator FindHud(){
+		yield return new WaitForSeconds(1.0f);
+		GameObject hud = GameObject.Find("HUD");			
+		scoreText = hud.transform.FindChild("Score").GetComponent<UnityEngine.UI.Text>();
+		livesText = hud.transform.FindChild("Lives").GetComponent<UnityEngine.UI.Text>();
 	}
 
 	void RestoreLivesToMax(){
@@ -114,6 +124,6 @@ public class GameManager : MonoBehaviour {
     }
     void UpdateLives()
     {
-        livesText.text = "Lives:" + lives;
+	    livesText.text = "Lives:" + lives;
     }
 }

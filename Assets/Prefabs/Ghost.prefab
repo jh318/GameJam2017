@@ -181,4 +181,5 @@ MonoBehaviour:
   leftClamp: -60
   rightClamp: 60
   health: 1
+  healthMax: 1
   score: {fileID: 0}
