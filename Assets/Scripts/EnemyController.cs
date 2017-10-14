@@ -48,7 +48,6 @@ public class EnemyController : MonoBehaviour {
 		while(true){
 			yield return new WaitForSeconds(time);
 			randomNumber = Random.Range(0, 3);
-			Debug.Log(randomNumber);
 		}
 	}
 }
