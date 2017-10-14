@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  health: 50
 --- !u!23 &209356694
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -197,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb760ce55215e54bb52e43350a81758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 54415546116328818, guid: 01b2a64b413f640429b354fe274ff068,
+  projectile: {fileID: 54795017675644616, guid: 937c47765bfb87f47a04fb87bf792018,
     type: 2}
   speed: 20
 --- !u!1 &528199606
