@@ -35,7 +35,9 @@ public class EnemyController : MonoBehaviour {
 			StartCoroutine("SwitchLane", sideTime);	
 		}
 		
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftClamp, rightClamp), transform.position.y, transform.position.z);
+		if(transform.position.x > 10 || transform.position.x < -10){
+        	transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftClamp, rightClamp), transform.position.y, transform.position.z);
+		}
 	}
 
 	IEnumerator SwitchLane(float time){
