@@ -400,6 +400,7 @@ MonoBehaviour:
   randomNumberRollSeconds: 4
   leftClamp: -10
   rightClamp: 10
+  health: 50
 --- !u!4 &984564480
 Transform:
   m_ObjectHideFlags: 0

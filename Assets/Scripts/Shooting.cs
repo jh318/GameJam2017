@@ -20,13 +20,16 @@ public class Shooting : MonoBehaviour{
 
             instantProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
 
-            
+            Destroy(instantProjectile.gameObject, 2f);
+
             GameObject bullet = Spawner.Spawn("Bullet");
             Rigidbody instantiatedProjectile = bullet.GetComponent<Rigidbody>();
             instantiatedProjectile.transform.position = transform.position;
             instantiatedProjectile.transform.rotation = transform.rotation;
 
             instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
+
+            
 
             
         }

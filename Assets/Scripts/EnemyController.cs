@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour {
 	public float randomNumberRollSeconds = 3.0f;
 	public float leftClamp = -10.0f;
 	public float rightClamp = 10.0f;
-
+    public int health = 50;
 	int randomNumber = 0;
 
 	void Start(){
@@ -50,4 +50,11 @@ public class EnemyController : MonoBehaviour {
 			randomNumber = Random.Range(0, 3);
 		}
 	}
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Bullet")
+        {
+            health--;
+        }
+    }
 }
