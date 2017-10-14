@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	public int startLives = 3;
 	[HideInInspector]
 	public int lives = 3;
+	public string restoreLifeScene = "";
 
 	void Awake(){
 		if(instance == null){
@@ -24,6 +25,12 @@ public class GameManager : MonoBehaviour {
 
 	void OnEnable(){
 		killboxcontroller.enemyPassedLine += OnEnemyPassedLine;
+		SceneManager.sceneLoaded += SceneLoaded;
+	}
+
+	void OnDisable(){
+		killboxcontroller.enemyPassedLine -= OnEnemyPassedLine;		
+		SceneManager.sceneLoaded -= SceneLoaded;
 	}
 
 	void Start(){
@@ -33,6 +40,7 @@ public class GameManager : MonoBehaviour {
 	void OnEnemyPassedLine(int lifeDamage){
 		Debug.Log("OnEnemyPassedLine");
 		lives -= lifeDamage;
+		Debug.Log("Life Count: " + lives);
 		if(lives <= 0){
 			Debug.Log("Out of Lives");
 			StartCoroutine("EndGame");
@@ -42,5 +50,17 @@ public class GameManager : MonoBehaviour {
 	IEnumerator EndGame(){
 		yield return new WaitForSeconds(3.0f);
 		SceneManager.LoadScene("EndGameScene");
+		StopAllCoroutines();
+	}
+
+	private void SceneLoaded(Scene scene, LoadSceneMode mode){
+		Debug.Log("MAINSCENELOAD");
+		if(scene.name == restoreLifeScene){
+			RestoreLivesToMax();
+		}
+	}
+
+	void RestoreLivesToMax(){
+		lives = startLives;
 	}
 }
