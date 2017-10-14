@@ -155,3 +155,4 @@ MonoBehaviour:
   randomNumberRollSeconds: 4
   leftClamp: -10
   rightClamp: 10
+  health: 3
