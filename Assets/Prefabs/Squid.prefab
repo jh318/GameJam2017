@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830464a3c0c88ce488bf84c85c03844f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 0
+  delayTime: 1
   speed: 0.1
   posA: {x: 0, y: -1000, z: 0}
   posB: {x: 0, y: 0, z: 0}
@@ -186,8 +186,8 @@ MonoBehaviour:
   sideSpeed: 0
   sideTime: 1
   randomNumberRollSeconds: 4
-  leftClamp: -60
-  rightClamp: 60
+  leftClamp: -150
+  rightClamp: 150
   health: 1
-  healthMax: 20
+  healthMax: 75
   score: {fileID: 0}

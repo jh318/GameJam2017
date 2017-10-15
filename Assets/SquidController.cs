@@ -27,9 +27,10 @@ public class SquidController : MonoBehaviour {
 
 		while(posA != posB){
 			transform.position = Vector3.Lerp(posA,posB, (Time.time - startTime) * speed);
-		
+			 if(transform.position == posB) break;
 			yield return 1;
 		}
+		Debug.Log("BossReady");
 	}
 
 	IEnumerator VisibleOn(){
