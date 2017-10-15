@@ -10,7 +10,7 @@ public class killboxcontroller : MonoBehaviour {
 
 	void OnTriggerEnter(Collider c){
 		if(c.gameObject.tag == "Enemies"){
-			enemyPassedLine(1);
+			//enemyPassedLine(1);
 			c.gameObject.SetActive(false);
 		}
 		else if(c.gameObject.tag == "Bullet"){

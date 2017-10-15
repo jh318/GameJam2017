@@ -11,13 +11,20 @@ public class GameManager : MonoBehaviour {
 	public int startLives = 3;
 	[HideInInspector]
 	public int lives = 3;
-	public string restoreLifeScene = "";
 
     public Text scoreText;
     public int score;
 
     public Text livesText;
+	public Text shotText;
+	public Text gameOverText;
 
+	[HideInInspector]
+	public int maxShot = 20;
+	[HideInInspector]
+	public int currShot = 0;
+	[HideInInspector]
+	public int finalScore = 0;
 
 	void Awake(){
 		if(instance == null){
@@ -31,31 +38,38 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		killboxcontroller.enemyPassedLine += OnEnemyPassedLine;
 		SceneManager.sceneLoaded += SceneLoaded;
+		killboxcontroller.enemyPassedLine += OnEnemyPassedLine;
 	}
 
 	void OnDisable(){
-		killboxcontroller.enemyPassedLine -= OnEnemyPassedLine;		
-		SceneManager.sceneLoaded -= SceneLoaded;
 	}
 
 	void Start(){
-		lives = 3;
-  
+		lives = startLives;
         score = 0;
         UpdateScore();
-
+		currShot = maxShot;
+		UpdateShot(0);
     }
 
-	void OnEnemyPassedLine(int lifeDamage){
-		Debug.Log("OnEnemyPassedLine");
-		lives -= lifeDamage;
-		Debug.Log("Life Count: " + lives);
+	void Update(){
 		if(lives <= 0){
+			GameOver();
 			Debug.Log("Out of Lives");
 			StartCoroutine("EndGame");
 		}
+	}
+
+	void OnEnemyPassedLine(int lifeDamage){
+		Debug.Log("OnEnemyPassedLine");
+		Debug.Log("Life Count: " + lives);
+		MinusLives(1);
+		// if(lives <= 0){
+		// 	GameOver();
+		// 	Debug.Log("Out of Lives");
+		// 	StartCoroutine("EndGame");
+		// }
 	}
 
 	IEnumerator EndGame(){
@@ -65,27 +79,30 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void SceneLoaded(Scene scene, LoadSceneMode mode){
+		currShot = maxShot;
+		lives = startLives;
 		GameObject hud = GameObject.Find("HUD");			
 		scoreText = hud.transform.FindChild("Score").GetComponent<UnityEngine.UI.Text>();
 		livesText = hud.transform.FindChild("Lives").GetComponent<UnityEngine.UI.Text>();
-		SceneManager.sceneLoaded += SceneLoaded;
+		shotText = hud.transform.FindChild("Shots").GetComponent<UnityEngine.UI.Text>();
+		gameOverText = hud.transform.FindChild("GameOver").GetComponent<UnityEngine.UI.Text>();
+		gameOverText.gameObject.SetActive(false);
+		
+		score = 0;
+		currShot = 20;
+		UpdateShot(0);
+		UpdateScore();
+		UpdateLives();
 		Debug.Log("MAINSCENELOAD");
+		//StartCoroutine("RestoreLivesCoroutine");
+		
 		if(scene.name == "MainGameScene"){
-			RestoreLivesToMax();
-			StartCoroutine("FindHud");
-			killboxcontroller.enemyPassedLine += OnEnemyPassedLine;
+		
 		}
 
-		
+		if(scene.name == "EndGameScreen"){
 
-		//GameObject hudScore = GameObject.Find("Score");
-		//scoreText = hudScore.GetComponent<Text>();
-		//UpdateScore();
-
-
-	//	GameObject hudLives = GameObject.Find("Lives");
-		//livesText = hudLives.GetComponent<Text>();
-		//UpdateLives();
+		}
 	}
 
 	IEnumerator FindHud(){
@@ -93,12 +110,12 @@ public class GameManager : MonoBehaviour {
 		GameObject hud = GameObject.Find("HUD");			
 		scoreText = hud.transform.FindChild("Score").GetComponent<UnityEngine.UI.Text>();
 		livesText = hud.transform.FindChild("Lives").GetComponent<UnityEngine.UI.Text>();
+		shotText = hud.transform.FindChild("Shots").GetComponent<UnityEngine.UI.Text>();
 	}
 
 	void RestoreLivesToMax(){
 		lives = 3;
         UpdateLives();
-
     }
 
     public void AddScore(int newScoreValue)
@@ -110,11 +127,12 @@ public class GameManager : MonoBehaviour {
     public void UpdateScore()
     {
         scoreText.text = "Score: " + score;
+		finalScore = score;
     }
 
     public void MinusLives(int newLives)
     {
-        lives-= newLives;
+        lives -= newLives;
         UpdateLives();
     }
     public void AddLives(int newLives)
@@ -124,6 +142,18 @@ public class GameManager : MonoBehaviour {
     }
     public void UpdateLives()
     {
-	    livesText.text = "Lives: " + lives;
+		if(lives >= 0) livesText.text = "Lives: " + lives;
+		else if(lives == 0) AudioManager.PlayEffect("player_die");
+    }
+	public void UpdateShot(int shotNum)
+    {
+		currShot += shotNum;
+	    shotText.text = "Shots: " + currShot;
+    }
+
+	public void GameOver()
+    {
+
+		gameOverText.gameObject.SetActive(true);
     }
 }

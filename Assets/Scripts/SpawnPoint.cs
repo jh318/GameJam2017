@@ -26,10 +26,10 @@ public class SpawnPoint : MonoBehaviour {
 		while(enabled){
 			yield return new WaitForEndOfFrame();
 			//EnemyController enemy = SpawnEnemy();
+			yield return new WaitForSeconds(spawnTime);
 			GameObject enemy = Spawner.Spawn(nameOfObjectToSpawn);
 			enemy.transform.position = transform.position + (Vector3)Random.insideUnitSphere * spawnRadius;
 			enemy.transform.position = new Vector3(enemy.transform.position.x, offsetY, enemy.transform.position.z);
-			yield return new WaitForSeconds(spawnTime);
 		}
 	}
 }

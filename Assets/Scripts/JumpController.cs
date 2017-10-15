@@ -10,6 +10,10 @@ public class JumpController : MonoBehaviour {
 	float randomNumber = 0.0f;
 	Rigidbody body;
 
+	void OnDisable(){
+		AudioManager.PlayEffect("smb_mariodie");
+	}
+
 	void Start(){
 		body = GetComponent<Rigidbody>();
 		StartCoroutine("JumpLoop");

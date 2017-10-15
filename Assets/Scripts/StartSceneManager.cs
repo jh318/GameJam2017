@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartSceneManager : MonoBehaviour {
 
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.Space)){
+		if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.JoystickButton7)){
 			SceneManager.LoadScene("MainGameScene");
 		}
 	}
