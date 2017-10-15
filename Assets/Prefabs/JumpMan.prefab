@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1508350901052490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.35096, y: 0.00000011920929, z: -63.997665}
+  m_LocalPosition: {x: 193.81729, y: 0.00000011920929, z: -55.774185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4795316798398642}
@@ -138,8 +138,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 30, y: 30, z: 1}
+  m_Center: {x: 0, y: 18, z: 0}
 --- !u!114 &114372664998175760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,12 +167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f4804d58cf1cc48b848e8c4096b78b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 0.1
+  forwardSpeed: 0.8
   sideSpeed: 0
   sideTime: 1
   randomNumberRollSeconds: 3
-  leftClamp: -60
-  rightClamp: 60
+  leftClamp: -90
+  rightClamp: 90
   health: 1
   healthMax: 1
   score: {fileID: 0}
@@ -188,4 +188,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 2000
-  jumpInterval: 5
+  jumpInterval: 3

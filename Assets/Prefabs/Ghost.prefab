@@ -161,12 +161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f4804d58cf1cc48b848e8c4096b78b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 1
-  sideSpeed: 0.5
-  sideTime: 1
-  randomNumberRollSeconds: 4
-  leftClamp: -60
-  rightClamp: 60
+  forwardSpeed: 3
+  sideSpeed: 1
+  sideTime: 1.5
+  randomNumberRollSeconds: 0.25
+  leftClamp: -90
+  rightClamp: 90
   health: 1
   healthMax: 1
   score: {fileID: 0}

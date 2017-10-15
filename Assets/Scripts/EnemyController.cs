@@ -19,11 +19,11 @@ public class EnemyController : MonoBehaviour {
 
 	void OnEnable(){
 		health = healthMax;
+		StartCoroutine("RandomNumberGenerator", randomNumberRollSeconds);		
 	}
 
 	void Start(){
 		Transform transform = GetComponent<Transform>();
-		StartCoroutine("RandomNumberGenerator", randomNumberRollSeconds);
 	}
 
 	void Update(){
