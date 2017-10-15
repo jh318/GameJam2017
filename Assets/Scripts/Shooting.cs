@@ -7,9 +7,9 @@ public class Shooting : MonoBehaviour{
 
     public float speed = 20;
     public float coolDown = 3.0f;
-    public float maxShot = 20.0f;
+    public int maxShot = 20;
     [HideInInspector]
-    public float currShotCount;
+    public int currShotCount;
 
     //bool gunReady = true;
     //float startTime = 0;
@@ -23,6 +23,8 @@ public class Shooting : MonoBehaviour{
     void Start(){
         //startTime = Time.time;
         currShotCount = 0;
+        GameManager.instance.maxShot = maxShot;
+        //GameManager.instance.currShot = 0;
     }
 
     void Update()
@@ -30,7 +32,7 @@ public class Shooting : MonoBehaviour{
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if(currShotCount <= maxShot){
+            if(currShotCount < maxShot){
                 AudioManager.PlayVariedEffect("GalagaShoot");
 
                 GameObject bullet = Spawner.Spawn("Bullet");

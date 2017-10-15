@@ -24,8 +24,10 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Enemies") {
-            health-=1;
-            lives.MinusLives(1);
+            Debug.Log("Collide");
+            //health-=1;
+            GameManager.instance.MinusLives(1);
+            collider.gameObject.SetActive(false);
         }
     }
 }
