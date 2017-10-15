@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
 
     public GameManager lives;
 
+    public CameraShake cam;
+    
+
     void Update()
     {
         float translation = Input.GetAxis("Horizontal") * speed;
@@ -17,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(translation, 0, 0);
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
 
-        screenPos.x = Mathf.Clamp(screenPos.x, 0f + clampOffSet, Screen.width - clampOffSet);
+        screenPos.x = Mathf.Clamp(screenPos.x, 0f, Screen.width);
 
         transform.position = Camera.main.ScreenToWorldPoint(screenPos);
     }
@@ -28,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
             //health-=1;
             GameManager.instance.MinusLives(1);
             collider.gameObject.SetActive(false);
+
+            cam.Shake();
         }
     }
 }
