@@ -164,9 +164,9 @@ MonoBehaviour:
   forwardSpeed: 3
   sideSpeed: 1
   sideTime: 1.5
-  randomNumberRollSeconds: 0.5
-  leftClamp: -70
-  rightClamp: 70
+  randomNumberRollSeconds: 0.25
+  leftClamp: -90
+  rightClamp: 90
   health: 1
   healthMax: 1
   score: {fileID: 0}
