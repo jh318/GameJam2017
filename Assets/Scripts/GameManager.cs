@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start(){
-		lives = startLives;
+		lives = 3;
   
         score = 0;
         UpdateScore();
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void RestoreLivesToMax(){
-		lives = startLives;
+		lives = 3;
         UpdateLives();
 
     }
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour {
 
     public void MinusLives(int newLives)
     {
-        lives -= newLives;
+        lives-= newLives;
         UpdateLives();
     }
     public void AddLives(int newLives)
@@ -122,8 +122,8 @@ public class GameManager : MonoBehaviour {
         lives += newLives;
         UpdateLives();
     }
-    void UpdateLives()
+    public void UpdateLives()
     {
-	    livesText.text = "Lives:" + lives;
+	    livesText.text = "Lives: " + lives;
     }
 }
