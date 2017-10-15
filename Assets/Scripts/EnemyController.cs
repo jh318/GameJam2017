@@ -71,6 +71,10 @@ public class EnemyController : MonoBehaviour {
             {
 				Debug.Log("Enemy Destroyed");
                 gameObject.SetActive(false);
+                GameObject particle = Spawner.Spawn("Death Particle");
+                particle = Instantiate(particle, gameObject.transform.position, gameObject.transform.rotation);
+                
+               
             }
         }
     }
