@@ -3,9 +3,7 @@ using System.Collections;
 
 public class Shooting : MonoBehaviour{
 
-    public Rigidbody projectile;
     public float speed = 20;
-
 
     void Update()
     {
