@@ -51,13 +51,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffdced9fd639e384b838b3f246b8c3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 0}
+  music: {fileID: 8300000, guid: 82c3cfb3bdbbb784dabb421881d015b5, type: 3}
   autoStartMusic: 1
   clips:
   - {fileID: 8300000, guid: 8bbc2b7d8fb05a94c8de998b349a83aa, type: 3}
   - {fileID: 8300000, guid: d48272ced521d7f4a925375a3e59a88a, type: 3}
+  - {fileID: 8300000, guid: ade216740d548954ea40ad46c41d8d23, type: 3}
+  - {fileID: 8300000, guid: 47c225e95801fe64a8a63165af43b691, type: 3}
+  - {fileID: 8300000, guid: eb4f6f1a2b9d7e844b3213e050763611, type: 3}
   mixers: []
   musicMixer: {fileID: 0}
   defaultSFXMixer: {fileID: 0}
-  sfxSourcesCount: 5
-  minPlayInterval: 0.01
+  sfxSourcesCount: 3
+  minPlayInterval: 1

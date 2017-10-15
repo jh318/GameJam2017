@@ -30,7 +30,7 @@ public class Shooting : MonoBehaviour{
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             if(currShotCount < maxShot){
                 AudioManager.PlayVariedEffect("GalagaShoot");

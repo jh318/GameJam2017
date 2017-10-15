@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour {
     public void UpdateLives()
     {
 		if(lives >= 0) livesText.text = "Lives: " + lives;
+		else if(lives == 0) AudioManager.PlayEffect("player_die");
     }
 	public void UpdateShot(int shotNum)
     {
@@ -152,6 +153,7 @@ public class GameManager : MonoBehaviour {
 
 	public void GameOver()
     {
+
 		gameOverText.gameObject.SetActive(true);
     }
 }
